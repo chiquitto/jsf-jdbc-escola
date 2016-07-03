@@ -6,7 +6,7 @@
     <navigation-rule>
         <from-view-id>/cidade/create.xhtml</from-view-id>
         <navigation-case>
-            <from-action>salvar</from-action>
+            <from-action>#{cidadeCreateMb.salvar()}</from-action>
             <from-outcome>sucesso</from-outcome>
             <to-view-id>/cidade/lista.xhtml</to-view-id>
             <redirect/>
