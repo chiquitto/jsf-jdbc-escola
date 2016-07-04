@@ -2,6 +2,7 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
+        <Node id="cidade/update.xhtml" x="650" y="150" zoom="true"/>
         <Node id="cidade/lista.xhtml" x="400" y="150" zoom="false"/>
         <Node id="index.xhtml" x="150" y="300" zoom="true"/>
         <Node id="cidade/create.xhtml" x="150" y="150" zoom="false"/>

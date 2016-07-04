@@ -12,6 +12,11 @@
                 <f:facet name="header">Nome da cidade</f:facet>
                 #{cidade.cidade}
             </h:column>
+            <h:column>
+                <h:link value="Editar" outcome="update">
+                    <f:param name="id" value="#{cidade.idcidade}" />
+                </h:link>
+            </h:column>
         </h:dataTable>
     </h:body>
 </html>

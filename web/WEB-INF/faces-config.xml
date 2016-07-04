@@ -12,4 +12,13 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/cidade/update.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{cidadeUpdateMb.salvar()}</from-action>
+            <from-outcome>sucesso</from-outcome>
+            <to-view-id>/cidade/lista.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
