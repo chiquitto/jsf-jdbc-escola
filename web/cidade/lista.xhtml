@@ -7,6 +7,7 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+        <h:form>
         <h:dataTable value="#{cidadesMb.cidades}" var="cidade" border="1">
             <h:column>
                 <f:facet name="header">Nome da cidade</f:facet>
@@ -17,7 +18,11 @@
                     <f:param name="id" value="#{cidade.idcidade}" />
                 </h:link>
             </h:column>
+            <h:column>
+                <h:commandLink value="Apagar" action="#{cidadesMb.delete(cidade)}" />
+            </h:column>
         </h:dataTable>
+        </h:form>
     </h:body>
 </html>
 
