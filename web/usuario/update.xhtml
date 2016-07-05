@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <f:metadata>
+            <f:viewParam name="id" value="#{usuarioUpdateMb.usuario.idpessoa}" required="true" />
+            <f:event type="preRenderView" listener="#{usuarioUpdateMb.loadData}" />
+        </f:metadata>
+        
+        <h:messages globalOnly="true"/>
+        
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Nome" for="nome" />
+                <h:inputText id="nome" value="#{usuarioUpdateMb.usuario.nome}" label="Nome" />
+                <h:message for="nome" />
+                
+                <h:outputLabel value="Nascimento" for="nascimento" />
+                <h:inputText id="nascimento" value="#{usuarioUpdateMb.usuario.nascimento}" label="Nascimento">
+                    <f:convertDateTime/>
+                </h:inputText>
+                <h:message for="nascimento" />
+                
+                <h:outputLabel value="Telefone" for="fone" />
+                <h:inputText id="fone" value="#{usuarioUpdateMb.usuario.fone}" label="Telefone" />
+                <h:message for="fone" />
+            </h:panelGrid>
+            
+            <h:commandButton value="Salvar" action="#{usuarioUpdateMb.salvar()}" />
+        </h:form>
+    </h:body>
+</html>
+

@@ -30,6 +30,14 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/usuario/update.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{usuarioUpdateMb.salvar()}</from-action>
+            <from-outcome>sucesso</from-outcome>
+            <to-view-id>/usuario/lista.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
     <application>
         <locale-config>
           <default-locale>pt_BR</default-locale>
