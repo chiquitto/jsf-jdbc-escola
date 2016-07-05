@@ -9,6 +9,12 @@ import javax.faces.bean.ManagedBean;
 public class UsuariosMb {
     private List<Usuario> usuarios;
     
+    public void delete(Usuario usuario) {
+        UsuarioDao dao = new UsuarioDao();
+        dao.apagar(usuario);
+        usuarios = null;
+    }
+    
     public List<Usuario> getUsuarios() {
         if (usuarios == null) {
             UsuarioDao dao = new UsuarioDao();
