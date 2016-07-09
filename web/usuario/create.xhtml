@@ -2,40 +2,43 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <h:messages globalOnly="true"/>
-        
-        <h:form>
-            <h:panelGrid columns="3">
-                <h:outputLabel value="Nome" for="nome" />
-                <h:inputText id="nome" value="#{usuarioCreateMb.usuario.nome}" label="Nome" />
-                <h:message for="nome" />
-                
-                <h:outputLabel value="Nascimento" for="nascimento" />
-                <h:inputText id="nascimento" value="#{usuarioCreateMb.usuario.nascimento}" label="Nascimento">
-                    <f:convertDateTime/>
-                </h:inputText>
-                <h:message for="nascimento" />
-                
-                <h:outputLabel value="Telefone" for="fone" />
-                <h:inputText id="fone" value="#{usuarioCreateMb.usuario.fone}" label="Telefone" />
-                <h:message for="fone" />
-                
-                <h:outputLabel value="E-mail" for="email" />
-                <h:inputText id="email" value="#{usuarioCreateMb.usuario.email}" label="E-mail" />
-                <h:message for="email" />
-                
-                <h:outputLabel value="Senha" for="senha" />
-                <h:inputSecret id="senha" value="#{usuarioCreateMb.usuario.senha}" label="Senha" />
-                <h:message for="senha" />
-            </h:panelGrid>
-            
-            <h:commandButton value="Salvar" action="#{usuarioCreateMb.salvar()}" />
-        </h:form>
+        <ui:composition template="/templates/master.xhtml">
+            <ui:define name="principal">
+                <h:form>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel value="Nome" for="nome" />
+                        <h:inputText id="nome" value="#{usuarioCreateMb.usuario.nome}" label="Nome" />
+                        <h:message for="nome" />
+
+                        <h:outputLabel value="Nascimento" for="nascimento" />
+                        <h:inputText id="nascimento" value="#{usuarioCreateMb.usuario.nascimento}" label="Nascimento">
+                            <f:convertDateTime/>
+                        </h:inputText>
+                        <h:message for="nascimento" />
+
+                        <h:outputLabel value="Telefone" for="fone" />
+                        <h:inputText id="fone" value="#{usuarioCreateMb.usuario.fone}" label="Telefone" />
+                        <h:message for="fone" />
+
+                        <h:outputLabel value="E-mail" for="email" />
+                        <h:inputText id="email" value="#{usuarioCreateMb.usuario.email}" label="E-mail" />
+                        <h:message for="email" />
+
+                        <h:outputLabel value="Senha" for="senha" />
+                        <h:inputSecret id="senha" value="#{usuarioCreateMb.usuario.senha}" label="Senha" />
+                        <h:message for="senha" />
+                    </h:panelGrid>
+
+                    <h:commandButton value="Salvar" action="#{usuarioCreateMb.salvar()}" />
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 

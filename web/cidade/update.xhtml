@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Facelet Title</title>
     </h:head>
@@ -11,18 +12,21 @@
             <f:viewParam name="id" value="#{cidadeUpdateMb.cidade.idcidade}" required="true" />
             <f:event type="preRenderView" listener="#{cidadeUpdateMb.loadData}"/>
         </f:metadata>
-        <h:messages globalOnly="true"/>
-        
-        <h:form>
-            <h:panelGrid columns="3">
-                <h:outputLabel value="Cidade" for="cidade" />
-                <h:inputText id="cidade" value="#{cidadeUpdateMb.cidade.cidade}" label="Cidade">
-                    <f:validateLength minimum="4" maximum="25" />
-                </h:inputText>
-                <h:message for="cidade" />
-            </h:panelGrid>
-            <h:commandButton value="Salvar" action="#{cidadeUpdateMb.salvar()}" />
-        </h:form>
+
+        <ui:composition template="/templates/master.xhtml">
+            <ui:define name="principal">
+                <h:form>
+                    <h:panelGrid columns="3">
+                        <h:outputLabel value="Cidade" for="cidade" />
+                        <h:inputText id="cidade" value="#{cidadeUpdateMb.cidade.cidade}" label="Cidade">
+                            <f:validateLength minimum="4" maximum="25" />
+                        </h:inputText>
+                        <h:message for="cidade" />
+                    </h:panelGrid>
+                    <h:commandButton value="Salvar" action="#{cidadeUpdateMb.salvar()}" />
+                </h:form>
+            </ui:define>
+        </ui:composition>
     </h:body>
 </html>
 
