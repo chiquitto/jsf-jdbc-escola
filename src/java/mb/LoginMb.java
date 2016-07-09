@@ -49,4 +49,9 @@ public class LoginMb {
         
         return null;
     }
+    
+    public String logout() {
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("usuario");
+        return "/login?faces-redirect=true";
+    }
 }

@@ -6,6 +6,9 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Controle de Escola</title>
+        
+        <h:outputStylesheet library="bootstrap" name="css/bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="estilos.css" />
     </h:head>
     <h:body>
         <f:view>
@@ -21,6 +24,9 @@
                 <ui:insert name="principal"/>
             </div>
         </f:view>
+        
+        <h:outputScript library="js" name="jquery.js" />
+        <h:outputScript library="bootstrap" name="js/bootstrap.min.js" />
     </h:body>
 </html>
 
