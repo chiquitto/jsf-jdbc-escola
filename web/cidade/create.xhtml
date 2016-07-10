@@ -15,6 +15,7 @@
                         <h:outputLabel value="Cidade" for="cidade" />
                         <h:inputText id="cidade" value="#{cidadeCreateMb.cidade.cidade}" label="Cidade">
                             <f:validateLength minimum="4" maximum="25" />
+                            <f:converter converterId="uppercaseConverter"/>
                         </h:inputText>
                         <h:message for="cidade" />
                     </h:panelGrid>

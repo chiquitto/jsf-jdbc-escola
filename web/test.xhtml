@@ -7,6 +7,13 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
+        <h:panelGrid id="panel" columns="2">
+            <h:outputLabel value="Email" />
+            <h:inputText  />
+            <h:outputLabel value="Senha" />
+            <h:inputSecret />
+        </h:panelGrid>
+
         <h:outputText value="#{testMb.valor}">
             <f:convertNumber type="currency" currencyCode="JPY" groupingUsed="false"/>
         </h:outputText>
