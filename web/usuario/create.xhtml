@@ -17,8 +17,9 @@
                         <h:message for="nome" />
 
                         <h:outputLabel value="Nascimento" for="nascimento" />
-                        <h:inputText id="nascimento" value="#{usuarioCreateMb.usuario.nascimento}" label="Nascimento">
+                        <h:inputText id="nascimento" value="#{usuarioCreateMb.usuario.nascimento}" label="Nascimento" required="true">
                             <f:convertDateTime/>
+                            <f:validator validatorId="maiorIdadeValidator" />
                         </h:inputText>
                         <h:message for="nascimento" />
 

@@ -17,14 +17,16 @@ public class TelefoneConverter implements Converter {
     public String getAsString(FacesContext context, UIComponent component, Object value) {
         String str = (String) value;
         String retorno = "";
-        
-        retorno += "(";
-        retorno += str.substring(0,2);
-        retorno += ") ";
-        retorno += str.substring(2,6);
-        retorno += "-";
-        retorno += str.substring(6);
-        
+
+        if (!str.isEmpty()) {
+            retorno += "(";
+            retorno += str.substring(0, 2);
+            retorno += ") ";
+            retorno += str.substring(2, 6);
+            retorno += "-";
+            retorno += str.substring(6);
+        }
+
         return retorno;
     }
 
