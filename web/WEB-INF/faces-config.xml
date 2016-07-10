@@ -60,10 +60,6 @@
           <default-locale>pt_BR</default-locale>
         </locale-config>
     </application>
-    <converter>
-        <converter-id>telefoneConverter</converter-id>
-        <converter-class>converter.TelefoneConverter</converter-class>
-    </converter>
     <lifecycle>
         <phase-listener>
             phaseListener.AutenticacaoPhaseListener
