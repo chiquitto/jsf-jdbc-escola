@@ -4,8 +4,6 @@ import br.com.chiquitto.aula.jdbcescola.dao.CidadeDao;
 import br.com.chiquitto.aula.jdbcescola.exception.RowNotFoundException;
 import br.com.chiquitto.aula.jdbcescola.vo.Cidade;
 import java.io.Serializable;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -20,7 +18,7 @@ public class CidadeUpdateMb implements Serializable {
     public Cidade getCidade() {
         return cidade;
     }
-    
+
     public void loadData() {
         CidadeDao cidadeDao = new CidadeDao();
         try {
@@ -33,12 +31,11 @@ public class CidadeUpdateMb implements Serializable {
 
     public String salvar() {
         CidadeDao cidadeDao = new CidadeDao();
-        
+
         try {
             cidadeDao.editar(cidade);
             return "sucesso";
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             FacesMessage msg = new FacesMessage("Falha para salvar o registro");
             FacesContext.getCurrentInstance().addMessage(null, msg);
             return "falha";

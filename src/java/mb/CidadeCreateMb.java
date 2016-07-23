@@ -4,9 +4,11 @@ import br.com.chiquitto.aula.jdbcescola.dao.CidadeDao;
 import br.com.chiquitto.aula.jdbcescola.vo.Cidade;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 
 @ManagedBean
+@RequestScoped
 public class CidadeCreateMb {
 
     private Cidade cidade = new Cidade();
