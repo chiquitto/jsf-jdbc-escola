@@ -8,38 +8,33 @@
         <title>Facelet Title</title>
     </h:head>
     <h:body>
-        <ui:composition template="/templates/master.xhtml">
-            <ui:define name="principal">
-                <h:form>
-                    <h:panelGrid columns="3">
-                        <h:outputLabel value="Nome" for="nome" />
-                        <h:inputText id="nome" value="#{usuarioCreateMb.usuario.nome}" label="Nome" />
-                        <h:message for="nome" />
+        <h:form>
+            <h:panelGrid columns="3">
+                <h:outputLabel value="Nome" for="nome" />
+                <h:inputText id="nome" value="#{usuarioCreateMb.usuario.nome}" label="Nome" />
+                <h:message for="nome" />
 
-                        <h:outputLabel value="Nascimento" for="nascimento" />
-                        <h:inputText id="nascimento" value="#{usuarioCreateMb.usuario.nascimento}" label="Nascimento" required="true">
-                            <f:convertDateTime/>
-                            <f:validator validatorId="maiorIdadeValidator" />
-                        </h:inputText>
-                        <h:message for="nascimento" />
+                <h:outputLabel value="Nascimento" for="nascimento" />
+                <h:inputText id="nascimento" value="#{usuarioCreateMb.usuario.nascimento}" label="Nascimento" required="true">
+                    <f:convertDateTime/>
+                </h:inputText>
+                <h:message for="nascimento" />
 
-                        <h:outputLabel value="Telefone" for="fone" />
-                        <h:inputText id="fone" value="#{usuarioCreateMb.usuario.fone}" label="Telefone" />
-                        <h:message for="fone" />
+                <h:outputLabel value="Telefone" for="fone" />
+                <h:inputText id="fone" value="#{usuarioCreateMb.usuario.fone}" label="Telefone" />
+                <h:message for="fone" />
 
-                        <h:outputLabel value="E-mail" for="email" />
-                        <h:inputText id="email" value="#{usuarioCreateMb.usuario.email}" label="E-mail" />
-                        <h:message for="email" />
+                <h:outputLabel value="E-mail" for="email" />
+                <h:inputText id="email" value="#{usuarioCreateMb.usuario.email}" label="E-mail" />
+                <h:message for="email" />
 
-                        <h:outputLabel value="Senha" for="senha" />
-                        <h:inputSecret id="senha" value="#{usuarioCreateMb.usuario.senha}" label="Senha" />
-                        <h:message for="senha" />
-                    </h:panelGrid>
+                <h:outputLabel value="Senha" for="senha" />
+                <h:inputSecret id="senha" value="#{usuarioCreateMb.usuario.senha}" label="Senha" />
+                <h:message for="senha" />
+            </h:panelGrid>
 
-                    <h:commandButton value="Salvar" action="#{usuarioCreateMb.salvar()}" />
-                </h:form>
-            </ui:define>
-        </ui:composition>
+            <h:commandButton value="Salvar" action="#{usuarioCreateMb.salvar()}" />
+        </h:form>
     </h:body>
 </html>
 

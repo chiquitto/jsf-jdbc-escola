@@ -3,65 +3,9 @@
               xmlns="http://xmlns.jcp.org/xml/ns/javaee"
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
-    <navigation-rule>
-        <from-view-id>/cidade/create.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{cidadeCreateMb.salvar()}</from-action>
-            <from-outcome>sucesso</from-outcome>
-            <to-view-id>/cidade/lista.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/cidade/update.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{cidadeUpdateMb.salvar()}</from-action>
-            <from-outcome>sucesso</from-outcome>
-            <to-view-id>/cidade/lista.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/usuario/create.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{usuarioCreateMb.salvar()}</from-action>
-            <from-outcome>sucesso</from-outcome>
-            <to-view-id>/usuario/lista.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/usuario/update.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{usuarioUpdateMb.salvar()}</from-action>
-            <from-outcome>sucesso</from-outcome>
-            <to-view-id>/usuario/lista.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <navigation-case>
-            <from-outcome>login</from-outcome>
-            <to-view-id>/login.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
-    <navigation-rule>
-        <from-view-id>/login.xhtml</from-view-id>
-        <navigation-case>
-            <from-action>#{loginMb.login()}</from-action>
-            <from-outcome>index</from-outcome>
-            <to-view-id>/index.xhtml</to-view-id>
-            <redirect/>
-        </navigation-case>
-    </navigation-rule>
     <application>
         <locale-config>
           <default-locale>pt_BR</default-locale>
         </locale-config>
     </application>
-    <lifecycle>
-        <!--<phase-listener>phaseListener.LifeCycleListener</phase-listener>-->
-        <phase-listener>phaseListener.AutenticacaoPhaseListener</phase-listener>
-    </lifecycle>
 </faces-config>
