@@ -8,13 +8,15 @@
     </h:head>
     <h:body>
         <h:form>
-            <h:messages/>
+            <h:messages globalOnly="true"/>
             <h:panelGrid columns="3">
+                
                 <h:outputLabel value="E-mail" for="email"/>
                 <h:inputText id="email" label="Email" value="#{loginMb.email}">
                     <f:validator validatorId="emailValidator" />
                 </h:inputText>
                 <h:message for="email"/>
+                
                 <h:outputLabel value="Senha" for="senha" />
                 <h:inputSecret id="senha" label="Senha" value="#{loginMb.senha}" />
                 <h:message for="senha"/>

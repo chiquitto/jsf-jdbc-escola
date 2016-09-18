@@ -1,27 +1,24 @@
 package mb;
 
 import br.com.chiquitto.aula.jdbcescola.dao.UsuarioDao;
+import br.com.chiquitto.aula.jdbcescola.exception.RowNotFoundException;
 import br.com.chiquitto.aula.jdbcescola.vo.Usuario;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.Part;
 
 @ManagedBean
-public class UsuarioCreateMb {
-
+public class UsuarioFotoMb {
     private Usuario usuario = new Usuario();
     private Part foto;
 
     public Usuario getUsuario() {
         return usuario;
-    }
-
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
     }
 
     public Part getFoto() {
@@ -31,28 +28,37 @@ public class UsuarioCreateMb {
     public void setFoto(Part foto) {
         this.foto = foto;
     }
-
-    public String salvar() {
+    
+    public void loadData() {
         UsuarioDao dao = new UsuarioDao();
-        dao.cadastrar(usuario);
         
+        try {
+            usuario = dao.getOne(usuario.getIdpessoa());
+        } catch (RowNotFoundException ex) {
+            FacesMessage msg = new FacesMessage("Usuario inexistente");
+            FacesContext.getCurrentInstance().addMessage(null, msg);
+        }
+    }
+    
+    public void salvar() {
         FacesContext context = FacesContext.getCurrentInstance();
         String uploadDir = (String) context.getExternalContext().getInitParameterMap().get("UPLOAD_DIR");
-
+        
+        File output = new File(uploadDir, "foto" + usuario.getIdpessoa() + ".jpg");
+        if (output.isFile()) {
+            output.delete();
+        }
+        
         try {
             InputStream input = foto.getInputStream();
-            File saida = new File(uploadDir, "foto" + usuario.getIdpessoa() + ".jpg");
-            
-            System.out.println(saida.toPath());
-
-            Files.copy(input, saida.toPath());
-            
-            input.close();
+                        
+            Files.copy(input, output.toPath());
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        
-        return "sucesso";
-
+    }
+    
+    public String getFotoValue() {
+        return "/upload/foto" + usuario.getIdpessoa() + ".jpg";
     }
 }

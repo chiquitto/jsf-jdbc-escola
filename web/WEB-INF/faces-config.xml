@@ -38,6 +38,14 @@
             <to-view-id>/usuario/lista.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
+    </navigation-rule><navigation-rule>
+        <from-view-id>/usuario/foto.xhtml</from-view-id>
+        <navigation-case>
+            <from-action>#{usuarioFotoMb.salvar()}</from-action>
+            <from-outcome>sucesso</from-outcome>
+            <to-view-id>/usuario/lista.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
     </navigation-rule>
     <navigation-rule>
         <navigation-case>

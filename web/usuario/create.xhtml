@@ -10,7 +10,7 @@
     <h:body>
         <ui:composition template="/templates/master.xhtml">
             <ui:define name="principal">
-                <h:form>
+                <h:form enctype="multipart/form-data">
                     <h:panelGrid columns="3">
                         <h:outputLabel value="Nome" for="nome" />
                         <h:inputText id="nome" value="#{usuarioCreateMb.usuario.nome}" label="Nome" />
@@ -34,6 +34,10 @@
                         <h:outputLabel value="Senha" for="senha" />
                         <h:inputSecret id="senha" value="#{usuarioCreateMb.usuario.senha}" label="Senha" />
                         <h:message for="senha" />
+                        
+                        <h:outputLabel value="Foto" for="foto" />
+                        <h:inputFile id="foto" value="#{usuarioCreateMb.foto}" label="Foto" />
+                        <h:message for="foto" />
                     </h:panelGrid>
 
                     <h:commandButton value="Salvar" action="#{usuarioCreateMb.salvar()}" />
