@@ -38,7 +38,8 @@
             <to-view-id>/usuario/lista.xhtml</to-view-id>
             <redirect/>
         </navigation-case>
-    </navigation-rule><navigation-rule>
+    </navigation-rule>
+    <navigation-rule>
         <from-view-id>/usuario/foto.xhtml</from-view-id>
         <navigation-case>
             <from-action>#{usuarioFotoMb.salvar()}</from-action>
@@ -63,6 +64,21 @@
             <redirect/>
         </navigation-case>
     </navigation-rule>
+    
+    <navigation-rule>
+        <from-view-id>/endereco/create.xhtml</from-view-id>
+        <navigation-case>
+            <to-view-id>/endereco/lista.xhtml</to-view-id>
+            <from-outcome>sucesso</from-outcome>
+            <redirect>
+                <view-param>
+                    <name>id</name>
+                    <value>#{enderecoCreateMb.usuario.idpessoa}</value>
+                </view-param>
+            </redirect>
+        </navigation-case>
+    </navigation-rule>
+    
     <application>
         <locale-config>
           <default-locale>pt_BR</default-locale>

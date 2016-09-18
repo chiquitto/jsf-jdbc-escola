@@ -47,6 +47,11 @@
                             </h:link>
                         </h:column>
                         <h:column>
+                            <h:link value="Endereços" outcome="/endereco/lista.xhtml">
+                                <f:param name="id" value="#{usuario.idpessoa}" />
+                            </h:link>
+                        </h:column>
+                        <h:column>
                             <h:commandLink action="#{usuariosMb.delete(usuario)}" value="Apagar" />
                         </h:column>
                     </h:dataTable>
