@@ -36,7 +36,9 @@
                         <h:message for="senha" />
                         
                         <h:outputLabel value="Foto" for="foto" />
-                        <h:inputFile id="foto" value="#{usuarioCreateMb.foto}" label="Foto" />
+                        <h:inputFile id="foto" value="#{usuarioCreateMb.foto}" label="Foto">
+                            <f:validator validatorId="fotoValidator" />
+                        </h:inputFile>
                         <h:message for="foto" />
                     </h:panelGrid>
 
