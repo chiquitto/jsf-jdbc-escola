@@ -27,7 +27,7 @@
     </context-param>
     <context-param>
         <param-name>UPLOAD_DIR</param-name>
-        <param-value>/Users/chiquitto/work/aula/jsf-jdbc-escola/web/upload</param-value>
+        <param-value>DIRETORIO_AQUI</param-value>
     </context-param>
     <!--<context-param>
         <param-name>timezone</param-name>

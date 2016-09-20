@@ -32,6 +32,6 @@ public class UsuarioUpdateMb {
         UsuarioDao dao = new UsuarioDao();
         dao.editar(usuario);
         
-        return "sucesso";
+        return "/usuario/lista.xhtml";
     }
 }
