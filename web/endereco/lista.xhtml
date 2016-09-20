@@ -22,6 +22,10 @@
                 <h:form>
                     <h:dataTable value="#{enderecoMb.enderecos}" var="endereco" border="1">
                         <h:column>
+                            <f:facet name="header">#</f:facet>
+                                #{endereco.idendereco}
+                        </h:column>
+                        <h:column>
                             <f:facet name="header">Logradouro</f:facet>
                                 #{endereco.logradouro}
                         </h:column>
@@ -32,6 +36,12 @@
                         <h:column>
                             <f:facet name="header">Cidade</f:facet>
                                 #{endereco.idcidade}
+                        </h:column>
+                        
+                        <h:column>
+                            <h:link value="Editar" outcome="update">
+                                <f:param name="id" value="#{endereco.idendereco}" />
+                            </h:link>
                         </h:column>
                     </h:dataTable>
                 </h:form>

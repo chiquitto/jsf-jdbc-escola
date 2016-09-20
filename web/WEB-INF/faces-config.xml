@@ -78,6 +78,19 @@
             </redirect>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/endereco/update.xhtml</from-view-id>
+        <navigation-case>
+            <to-view-id>/endereco/lista.xhtml</to-view-id>
+            <from-outcome>sucesso</from-outcome>
+            <redirect>
+                <view-param>
+                    <name>id</name>
+                    <value>#{enderecoUpdateMb.usuario.idpessoa}</value>
+                </view-param>
+            </redirect>
+        </navigation-case>
+    </navigation-rule>
     
     <application>
         <locale-config>

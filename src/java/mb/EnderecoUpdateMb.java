@@ -15,20 +15,11 @@ import javax.faces.context.FacesContext;
 
 @ManagedBean
 @ViewScoped
-public class EnderecoCreateMb {
-
-    private Usuario usuario = new Usuario();
+public class EnderecoUpdateMb {
+    private Usuario usuario;
     private Endereco endereco = new Endereco();
-    private int idcidade = 0;
+    private int idcidade;
     private List<Cidade> cidades;
-
-    public int getIdcidade() {
-        return idcidade;
-    }
-
-    public void setIdcidade(int idcidade) {
-        this.idcidade = idcidade;
-    }
 
     public Usuario getUsuario() {
         return usuario;
@@ -38,35 +29,47 @@ public class EnderecoCreateMb {
         return endereco;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public int getIdcidade() {
+        return idcidade;
     }
 
+    public void setIdcidade(int idcidade) {
+        this.idcidade = idcidade;
+    }
+    
     public List<Cidade> getCidades() {
         if (cidades == null) {
             cidades = (new CidadeDao()).getAll();
         }
         return cidades;
     }
-
+    
     public void loadData() {
-        UsuarioDao dao = new UsuarioDao();
-
+        EnderecoDao enderecoDao = new EnderecoDao();
+        
         try {
-            usuario = dao.getOne(usuario.getIdpessoa());
+            endereco = enderecoDao.getOne(endereco.getIdendereco());
         } catch (RowNotFoundException ex) {
-            FacesMessage msg = new FacesMessage("Usuario inexistente");
+            FacesMessage msg = new FacesMessage("Registro inexistente");
             FacesContext.getCurrentInstance().addMessage(null, msg);
         }
+        
+        idcidade = endereco.getIdcidade();
+        
+        UsuarioDao usuarioDao = new UsuarioDao();
+        
+        try {
+            usuario = usuarioDao.getOne(endereco.getIdpessoa());
+        } catch (RowNotFoundException ex) {
+            
+        }
     }
-
+    
     public String salvar() {
-        endereco.setIdpessoa(usuario.getIdpessoa());
         endereco.setIdcidade(idcidade);
-
-        EnderecoDao dao = new EnderecoDao();
-        dao.cadastrar(endereco);
-
+        
+        (new EnderecoDao()).editar(endereco);
+        
         return "sucesso";
     }
 }
