@@ -38,7 +38,7 @@ public class CidadeUpdateMb implements Serializable {
         } catch (Exception e) {
             FacesMessage msg = new FacesMessage("Falha para salvar o registro");
             FacesContext.getCurrentInstance().addMessage(null, msg);
-            return "falha";
+            return null;
         }
     }
 }

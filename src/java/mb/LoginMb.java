@@ -31,7 +31,7 @@ public class LoginMb {
         this.senha = senha;
     }
     
-    public void login() {
+    public String login() {
         UsuarioDao dao = new UsuarioDao();
         
         Usuario usuario = new Usuario();
@@ -42,13 +42,14 @@ public class LoginMb {
             usuario = dao.getByEmailSenha(usuario);
             
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap().put("usuario", usuario);
-            FacesContext.getCurrentInstance().getExternalContext().redirect("index.xhtml");
+            
+            return "/index.xhtml";
         } catch (RowNotFoundException ex) {
             // informacoes incorretas
             FacesMessage msg = new FacesMessage("Email e/ou Senha incorretos");
             FacesContext.getCurrentInstance().addMessage(null, msg);
-        } catch (IOException ex) {
             
+            return null;
         }
     }
     

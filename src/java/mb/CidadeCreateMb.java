@@ -23,11 +23,9 @@ public class CidadeCreateMb {
             cidadeDao.cadastrar(cidade);
             return "sucesso";
         } catch (Exception e) {
-            e.printStackTrace();
-            
             FacesMessage msg = new FacesMessage("Falha para inserir o registro");
             FacesContext.getCurrentInstance().addMessage(null, msg);
+            return null;
         }
-        return "";
     }
 }
