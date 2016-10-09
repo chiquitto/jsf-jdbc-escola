@@ -2,6 +2,7 @@ body {
 }
 
 body > .container {
-	margin: 0 auto;
+	margin-left: auto;
+    margin-right: auto;
     width: 700px;
 }
