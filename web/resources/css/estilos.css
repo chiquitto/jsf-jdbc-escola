@@ -2,6 +2,7 @@ body {
     padding-top: 70px;
 }
 
-body>.container {
-	margin-bottom: 25px;
+body > .container {
+	margin: 0 auto;
+    width: 700px;
 }
