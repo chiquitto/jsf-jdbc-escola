@@ -12,14 +12,14 @@ public class UsuariosMb {
     public void delete(Usuario usuario) {
         UsuarioDao dao = new UsuarioDao();
         dao.apagar(usuario);
-        usuarios = null;
+        this.usuarios = null;
     }
     
     public List<Usuario> getUsuarios() {
-        if (usuarios == null) {
+        if (this.usuarios == null) {
             UsuarioDao dao = new UsuarioDao();
-            usuarios = dao.getAll();
+            this.usuarios = dao.getAll();
         }
-        return usuarios;
+        return this.usuarios;
     }
 }
